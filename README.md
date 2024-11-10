@@ -1,5 +1,10 @@
 # Plantsy 🌱
 
+## Author
+
+Alexander Mwangi Maina
+Maina206mwangi@gmail.com
+
 ## Description
 
 Plantsy is a React-based web application for managing a plant shop's inventory. It allows users to view, add, search, and manage plants with a simple and intuitive interface.
