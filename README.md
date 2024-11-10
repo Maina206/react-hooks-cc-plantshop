@@ -1,150 +1,171 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy 🌱
 
-## Demo
+## Description
 
-Use this gif as an example of how the app should work.
+Plantsy is a React-based web application for managing a plant shop's inventory. It allows users to view, add, search, and manage plants with a simple and intuitive interface.
 
-![Demo GIF](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-mock-code-challenge-plantshop/plantsy_demo.gif)
+## Project Link
 
-## Instructions
+Link to the deployed site:
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Features
 
-Your job will be to make our app work according to the user stories you will
-find the [Core Deliverables](#Core-Deliverables) section.
+- **Plant Management**
 
-## Setup
+  - View all plants in a responsive card layout
+  - Add new plants with name, image URL, and price
+  - Delete plants from inventory
+  - Toggle plant availability status (In Stock/Out of Stock)
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm start`.
+- **Search Functionality**
+  - Real-time search filtering of plants by name
+  - Instant updates as you type
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+## Project Structure
 
-## Endpoints
-
-The base URL for your backend is: `http://localhost:6001`
-
-## Core Deliverables
-
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```
+plantsy/
+│
+├── src/
+│   ├── components/
+│   │   ├── App.js
+│   │   ├── Header.js
+│   │   ├── PlantPage.js
+│   │   ├── PlantList.js
+│   │   ├── PlantCard.js
+│   │   ├── NewPlantForm.js
+│   │   └── Search.js
+│   │
+│   ├── index.js
+│   └── index.css
+│
+├── public/
+│   └── index.html
+│
+├── package.json
+└── README.md
 ```
 
-#### POST `/plants`
+## Component Hierarchy
 
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
+```
+App
+├── Header
+└── PlantPage
+    ├── NewPlantForm
+    ├── Search
+    └── PlantList
+        └── PlantCard
 ```
 
-Request Object:
+## Component Details
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+- **App**: Root component
+
+  - Renders Header and PlantPage
+  - Manages overall layout
+
+- **PlantPage**: Main container component
+
+  - Manages plant data state
+  - Handles API calls
+  - Controls data flow between components
+  - State: plants[], submittedSearch
+
+- **PlantList**: Plant display component
+
+  - Renders filtered plant cards
+  - Handles plant filtering based on search
+  - Props: plants, submittedSearch, onDeletePlant
+
+- **PlantCard**: Individual plant component
+
+  - Displays plant details
+  - Manages stock status
+  - Handles deletion
+  - State: isInStock
+  - Props: plant, id, onDeletePlant
+
+- **NewPlantForm**: Form component
+
+  - Handles plant creation
+  - Manages form state
+  - State: newPlantName, newPlantImage, newPlantPrice
+  - Props: onAddPlant
+
+- **Search**: Search component
+  - Manages search functionality
+  - State: searchTerm
+  - Props: setSubmittedSearch
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <your-repository-url>
+cd plantsy
 ```
 
-Example Response:
+2. Install dependencies:
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
+```bash
+npm install
 ```
 
-## Advanced Deliverables
+3. Start the development server:
 
-These deliverables are not required to pass the code challenge, but if you have
-the extra time, or even after the code challenge, they are a great way to
-stretch your skills.
-
-You'll have to add additional elements for these features. Feel free to style
-them however you see fit!
-
-> Note: If you are going to attempt these advanced deliverables, please be sure
-> to have a working commit with all the Core Deliverables first!
-
-As a user:
-
-1. I can update the price of a plant and still see the updated price after
-   refreshing the page.
-2. I can delete a plant and it is still gone when I refresh the page.
-
-### Endpoints for Advanced Deliverables
-
-#### PATCH /plants/:id
-
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
+```bash
+npm start
 ```
 
-Request Object:
+4. Start the backend server:
 
-```json
-{
-  "price": number
-}
+```bash
+json-server --watch db.json --port 6001
 ```
 
-Example Response:
+## Backend Setup
+
+The application requires a JSON server running on port 6001. Your `db.json` should have a `plants` array with objects following this structure:
 
 ```json
 {
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 16.99
+  "plants": [
+    {
+      "id": 1,
+      "name": "Plant Name",
+      "image": "image_url",
+      "price": "29.99"
+    }
+  ]
 }
 ```
 
-#### DELETE /plants/:id
+## API Endpoints
 
-Example Response:
+| Endpoint      | Method | Description      |
+| ------------- | ------ | ---------------- |
+| `/plants`     | GET    | Fetch all plants |
+| `/plants`     | POST   | Add a new plant  |
+| `/plants/:id` | DELETE | Delete a plant   |
 
-```json
-{}
-```
+## Usage
+
+1. Start both the frontend and backend servers
+2. Browse the existing plant inventory
+3. Use the search bar to filter plants by name
+4. Add new plants using the form at the top of the page
+5. Toggle plant availability using the "In Stock"/"Out of Stock" button
+6. Delete plants using the delete button on each card
+
+## Dependencies
+
+- React
+- React DOM
+- JSON Server (for backend)
+- Other dependencies as listed in package.json
+
+## License
+
+This project is licensed under the MIT License
