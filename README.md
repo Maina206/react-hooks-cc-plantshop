@@ -6,7 +6,7 @@ Plantsy is a React-based web application for managing a plant shop's inventory. 
 
 ## Project Link
 
-Link to the deployed site:
+Link to the deployed site: https://673080fc33de73ae151c98b1--myplantsyapp.netlify.app/
 
 ## Features
 
@@ -103,7 +103,7 @@ App
 1. Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Maina206/react-hooks-cc-plantshop
 cd plantsy
 ```
 
