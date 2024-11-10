@@ -65,6 +65,12 @@
       "image": "https://www.thespruce.com/thmb/bW_aNpJmmnM0a_ySCdsYanFuAEM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_DSC58741-476b7f7ef66d44ba8ce33cbc0d7b8dd4.jpg",
       "price": "22.6",
       "id": 11
+    },
+    {
+      "name": "Snake Plant 2",
+      "image": "https://plus.unsplash.com/premium_photo-1673969608395-9281e5e4395f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c25ha2UlMjBwbGFudHxlbnwwfHwwfHx8MA%3D%3D",
+      "price": 50,
+      "id": 12
     }
   ]
 }
