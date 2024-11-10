@@ -59,6 +59,12 @@
       "image": "https://thewateringcan.ca/wp-content/uploads/2021/03/6-Laurentii-snake-scaled-1-scaled-scaled.jpg",
       "price": "30.0",
       "id": 10
+    },
+    {
+      "name": "Aloe Vera",
+      "image": "https://www.thespruce.com/thmb/bW_aNpJmmnM0a_ySCdsYanFuAEM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_DSC58741-476b7f7ef66d44ba8ce33cbc0d7b8dd4.jpg",
+      "price": "22.6",
+      "id": 11
     }
   ]
 }

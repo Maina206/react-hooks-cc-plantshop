@@ -113,6 +113,22 @@ input:focus {
   margin-top: 0.5rem;
 }
 
+.loading,
+.error {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (min-width: 768px) {
   .cards {
     display: flex;
